@@ -2,7 +2,7 @@
 --  documentation, see http://haskell.org/cabal/users-guide/
 
 name:                quickcheck-webdriver
-version:             0.1.0.2
+version:             0.1.0.3
 synopsis:            Utilities for using WebDriver with QuickCheck
 -- description:         
 license:             MIT
