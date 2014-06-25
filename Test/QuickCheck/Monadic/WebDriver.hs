@@ -5,11 +5,18 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE OverloadedStrings   #-}
 
-module Test.QuickCheck.Monadic.WebDriver 
-    (
-    -- * Example
-    -- $example
-    ) where
+
+
+-- |
+-- Module:      Test.QuickCheck.Monadic.WebDriver
+-- Copyright:   (c) 2014 Christian Brink
+-- License:     MIT
+-- Maintainer:  Christian Brink
+-- 
+-- * Example
+-- $example
+
+module Test.QuickCheck.Monadic.WebDriver where
 
 import Prelude
 
