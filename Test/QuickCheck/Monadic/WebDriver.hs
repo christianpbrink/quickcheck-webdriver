@@ -40,7 +40,7 @@ data Context = ExistingSession WDSession
              | SessionParams Capabilities (WD ())
 
 -- |Patterned after `monadicIO` (and `ioProperty`).
-monadicWD context wd = monadic wdProperty wd
+monadicWD context = monadic wdProperty
   where 
     wdProperty = ioProperty . runSesh
     runSesh action = case context of
