@@ -35,7 +35,7 @@ runIO = QCM.run . liftIO
 -- > import Test.QuickCheck.Monadic (run, pick, assert)
 -- > import Test.WebDriver
 -- > prop_Example = monadicWD allCaps $ do
--- >     pick $ oneof ("http://www.yesodweb.com", "http://snapframework.com/")
+-- >     url <- pick $ oneof ("http://www.yesodweb.com", "http://snapframework.com/")
 -- >     run $ openPage url
 -- >     assert True
 -- >     runIO $ putStrLn $ "We've just evaluated a `Gen a` using `pick` and \
