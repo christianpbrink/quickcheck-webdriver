@@ -5,8 +5,6 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE OverloadedStrings   #-}
 
-
-
 -- |
 -- Module:      Test.QuickCheck.Monadic.WebDriver
 -- Copyright:   (c) 2014 Christian Brink
@@ -14,7 +12,6 @@
 -- Maintainer:  Christian Brink
 -- 
 -- Example usage:
---
 -- > import Test.QuickCheck
 -- > import Test.QuickCheck.Monadic (run, pick, assert)
 -- > import Test.WebDriver
@@ -55,7 +52,7 @@ chromeOpts = [ "--log-level=0" ]
 
 chrome' = chrome { chromeOptions = chromeOpts }
 
-caps browser = allCaps {browser=browser} 
+caps browser = allCaps { browser = browser } 
 
 capsChrome = caps chrome'
 capsFirefox = caps firefox
@@ -64,6 +61,3 @@ seshParams browser = SessionParams (caps browser) $ return ()
 
 seshParamsChrome   = seshParams chrome'
 seshParamsFirefox' = seshParams firefox
-
--- $example
---
