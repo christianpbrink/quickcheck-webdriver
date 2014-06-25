@@ -38,3 +38,6 @@ runIO = QCM.run . liftIO
 -- >     pick $ oneof ("http://www.yesodweb.com", "http://snapframework.com/")
 -- >     run $ openPage url
 -- >     assert True
+-- >     runIO $ putStrLn $ "We've just evaluated a `Gen a` using `pick` and \
+-- >                        \a `WD ()` using `run`, then asserted a that a \
+-- >                        \property holds using `assert`."
