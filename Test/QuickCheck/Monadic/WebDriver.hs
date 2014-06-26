@@ -15,14 +15,14 @@
 -- > import Test.QuickCheck
 -- > import Test.QuickCheck.Monadic (run, pick, assert)
 -- > import Test.WebDriver
--- > prop_Example = monadicWD context $ do
--- >     url <- pick $ oneof ("http://www.yesodweb.com", "http://snapframework.com/")
--- >     run $ openPage url
--- >     assert True
--- >     runIO $ putStrLn $ "We've just evaluated a `Gen a` using `pick` and \
--- >                        \a `WD ()` using `run`, then asserted a that a \
--- >                        \property holds using `assert`."
--- >  where context = SessionParams allCaps (return ())
+-- prop_Example = monadicWD context $ do
+--     url :: String <- pick $ elements ["http://www.yesodweb.com", "http://snapframework.com/"]
+--     run $ openPage url
+--     assert True
+--     runIO $ putStrLn $ "We've just evaluated a `Gen a` using `pick` and \
+--                        \a `WD ()` using `run`, then asserted a that a \
+--                        \property holds using `assert`."
+--   where context = SessionParams allCaps (return ())
 
 module Test.QuickCheck.Monadic.WebDriver where
 
@@ -61,3 +61,12 @@ seshParams browser = SessionParams (caps browser) $ return ()
 
 seshParamsChrome   = seshParams chrome'
 seshParamsFirefox' = seshParams firefox
+
+prop_Example = monadicWD context $ do
+    url :: String <- pick $ elements ["http://www.yesodweb.com", "http://snapframework.com/"]
+    run $ openPage url
+    assert True
+    runIO $ putStrLn $ "We've just evaluated a `Gen a` using `pick` and \
+                       \a `WD ()` using `run`, then asserted a that a \
+                       \property holds using `assert`."
+  where context = SessionParams allCaps (return ())
