@@ -19,7 +19,7 @@ library
   exposed-modules:   Test.QuickCheck.Monadic.WebDriver
   -- other-modules:       
   -- other-extensions:    
-  build-depends:       base >=4.6 && <4.7
+  build-depends:       base >=4.6 && <4.8
                      , QuickCheck
                      , webdriver    >= 0.6
                      , transformers
