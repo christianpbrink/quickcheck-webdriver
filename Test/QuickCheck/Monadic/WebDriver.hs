@@ -31,6 +31,7 @@ import Test.QuickCheck
 import Test.QuickCheck.Property
 import Test.QuickCheck.Monadic as QCM
 import Test.WebDriver
+import Test.WebDriver.Session             ( WDSession )
 import Control.Monad.IO.Class
 
 data Context = ExistingSession WDSession 
@@ -42,7 +43,8 @@ monadicWD context = monadic wdProperty
     wdProperty = ioProperty . runSesh
     runSesh action = case context of
         ExistingSession sesh -> runWD sesh action
-        SessionParams caps setup -> runSession defaultSession caps $ setup >> action
+        SessionParams caps setup -> runSession conf $ setup >> action
+            where conf = defaultConfig { wdCapabilities=caps }
           
 
 runIO :: IO a -> PropertyM WD a
